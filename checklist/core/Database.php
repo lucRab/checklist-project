@@ -4,7 +4,7 @@ namespace App\Model;
  * Classe responsável por fazer a conexão com o banco de dados
  */
 
-//use Exception;
+use Exception;
 
 class Database {
 
@@ -34,5 +34,9 @@ class Database {
   }
 }
 
-$teste = new Database;
-var_dump($teste);
+// $conexao = \App\Model\Database::conectar();
+// $insert = $conexao-> prepare("INSERT usuario ( ` nome`, `senha`, `email`, `username`) VALUES (?,?,?,?)");
+// var_dump($insert);
+// $insert->bind_param("ssss", $name, $senha, $email, $username);
+
+// $insert->execute();
