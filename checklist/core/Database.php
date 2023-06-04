@@ -1,42 +1,37 @@
 <?php
 namespace App\Model;
 /**
- * Classe responsável por fazer a conexão com o banco de dados
+ * Classe para fazer conexão com o banco de dados
+ * @author Lucas Rabelo <lucasrabelo186@gmail.com>
+ * @version ${1:1.0.0
  */
-
 use Exception;
+class Conexao {
+  static $conexao;
+/**
+ * Função para que abre conexão com o banco de dados
+ * @return object mysqli ou @return exception
+ */
+  public static function conectar() {
+    //tenta abrir conexão
+    try {  
+      self:: $conexao = new \mysqli("localhost","root","","mydb");
+      //retorna conexão
+      return self:: $conexao;   
+    }catch (Exception $e) {
+      self:: $conexao = $e;
+      //retorna o motivo do erro
+      return self:: $conexao;
+     
+    } 
 
-class Database {
-
-  protected static $conexao;
-
-  /**
-  * Método estático que retorna a conexão com o banco de dados, se ela já existir, ou cria uma nova conexão.
-  * @return mysqli - Objeto de conexão com o banco de dados MySQL
-  */
-  public static function conectar()
-  {
-    // Código do método
-    // Verifica se já existe uma conexão aberta com o banco de dados
-    if (!isset(self::$conexao)) {
-      // Cria uma nova conexão com o banco de dados MySQL
-      try {
-        self::$conexao = new \mysqli("localhost", "root", "", "mydb");
-      } catch (Exception $e) {
-        //joga no logg o motivo
-        return $e;
-      }
-      // Define o charset da conexão para utf8
-      self::$conexao->set_charset("utf8");
-    }
-    // Retorna a conexão com o banco de dados
-    return self::$conexao;
   }
 }
+//$cone = new \App\Model\Conexao;
+$teste = \App\Model\Conexao::conectar();
+//$teste = $cone->conectar();
+var_dump($teste);
 
-// $conexao = \App\Model\Database::conectar();
-// $insert = $conexao-> prepare("INSERT usuario ( ` nome`, `senha`, `email`, `username`) VALUES (?,?,?,?)");
-// var_dump($insert);
-// $insert->bind_param("ssss", $name, $senha, $email, $username);
+// $conexao = new \mysqli("localhost","root","","mydb");
 
-// $insert->execute();
+// var_dump($conexao);
