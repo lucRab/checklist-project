@@ -1,7 +1,7 @@
-# checklist-project
+# Checklist-project
 
-##Olá!! Meu nome é Lucas Rabelo, sou aluno de Desenvolvimento de sistema e estou desenvolvendo
-esse sistema com o intuito de praticar os meus conhecimentos.##
+Olá!! Meu nome é Lucas Rabelo, sou aluno de Desenvolvimento de sistema e estou desenvolvendo
+esse sistema com o intuito de praticar os meus conhecimentos.
 _________________________________________________________________________________________________________________________________________
 Objetivo do projeto:
 Desenvolver um sistema de checklist que preencha os sequintes requisitos:
