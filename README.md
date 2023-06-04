@@ -6,12 +6,12 @@ ________________________________________________________________________________
 Objetivo do projeto:
 Desenvolver um sistema de checklist que preencha os sequintes requisitos:
 _1.  Opção de criar checklist’s Pode criar itens.
-§  O item poderá ter uma observação para caso o item não seja preenchido o cliente tenha orientação no relatório.
+§  O item poderá ter uma observação para caso o item não seja preenchido o cliente tenha orientação no relatório._
 
 _2.  Opção de edição do checklist
       Pode editar o item
       Pode remover o item
-      Adicionar novos item
+      Adicionar novos item_
 
 _3.  Deletar/remover um checklist_
 
