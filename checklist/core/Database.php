@@ -27,11 +27,3 @@ class Conexao {
 
   }
 }
-//$cone = new \App\Model\Conexao;
-$teste = \App\Model\Conexao::conectar();
-//$teste = $cone->conectar();
-var_dump($teste);
-
-// $conexao = new \mysqli("localhost","root","","mydb");
-
-// var_dump($conexao);
