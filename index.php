@@ -10,6 +10,6 @@ $data->email = "teste@gmail.com";
 $data->username = "teste";
 $data->id = 17;
 
-$teste = UsuarioModel::updateUsuario($data);
-
-var_dump($teste);
+$teste = UsuarioModel::getAll($data);
+$f = $teste->fetchAll(PDO::FETCH_OBJ);
+var_dump($f);
