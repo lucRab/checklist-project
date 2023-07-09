@@ -1,15 +1,19 @@
 <?php
 
-require_once "app/model/UsuarioModel.class.php";
+require_once "app/model/UsuarioModel.php";
+require_once "app/model/ChecklistModel.php";
 use App\model\UsuarioModel;
+use App\model\ChecklistModel;
 
 $data = new stdClass;
 $data->nome = "nometeste";
 $data->senha = "senhateste";
 $data->email = "teste@gmail.com";
 $data->username = "teste";
-$data->id = 17;
+$data->descricao = "descrição teste";
+$data->id = 3;
+$data->status = true;
 
-$teste = UsuarioModel::getAll($data);
-$f = $teste->fetchAll(PDO::FETCH_OBJ);
-var_dump($f);
+$teste = ChecklistModel::updateChecklist($data);
+//$teste = UsuarioModel::createUser($data);
+var_dump($teste);

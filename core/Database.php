@@ -16,7 +16,7 @@ class Conexao {
   public static function conectar() {
     //tenta abrir conexão
     try {  
-      self:: $conexao = new \PDO('mysql:host=localhost;dbname=mydb;charset=utf8','root','');
+      self:: $conexao = new \PDO('mysql:host=localhost;dbname=check_list;charset=utf8','root','');
       //retorna conexão
       return self:: $conexao;   
     }catch (\PDOException $e) {
