@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `checklist` (
   `idchecklist` int NOT NULL,
   `usuario_idusuario` int(11) NOT NULL,
-  `status` bit(1) DEFAULT NULL,
+  `status` bit(1),
   `descricao` varchar(300) DEFAULT NULL,
   `name` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -43,9 +43,9 @@ CREATE TABLE `checklist` (
 
 CREATE TABLE `item` (
   `iditem` int NOT NULL,
-  `nome` varchar(20) NOT NULL,
-  `comentario` varchar(45) DEFAULT NULL,
-  `status` bit(1) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `descricao` varchar(45) DEFAULT NULL,
+  `status` bit(1),
   `checklist_idchecklist` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
