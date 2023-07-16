@@ -58,7 +58,6 @@ CREATE TABLE `item` (
 
 CREATE TABLE `usuario` (
   `idusuario` int NOT NULL,
-  ` nome` varchar(20) NOT NULL,
   `senha` varchar(12) NOT NULL,
   `email` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,

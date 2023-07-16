@@ -40,7 +40,7 @@ class UsuarioModel {
                return $id;
                
             }catch(\PDOException $e) {
-               //retorna o erro no insert
+               //retorna o erro
                return $e->getMessage();
             }
       }else {     
@@ -68,7 +68,7 @@ class UsuarioModel {
             $deleteUser->execute($param);
             return $deleteUser;
          }catch(\PDOException $e) {
-           //retorna o erro no delete
+           //retorna o erro
             return $e->getMessage();
          }
       }else {
@@ -103,7 +103,7 @@ class UsuarioModel {
             $updateUser->execute($param);
             return $updateUser;
          }catch(\PDOException $e) {
-            //retorna o erro no delete
+            //retorna o erro
             return $e->getMessage();
          }
       }else {
@@ -113,14 +113,14 @@ class UsuarioModel {
    }
    /**
    * Função para trazer os dados o usuario do banco de dados
-   *@param int $id - id do usuario
-   * @return true ou @return Exception
+   *@param [stdclass] $data
+   * @return object ou @return Exception
    */
     public static function getAll($data) {
       //Código do método
       //Executa um metodo da classe Conexao
       $conexao = Conexao::conectar();
-         //Verifica se a conexão retorna um obejo mysqli
+      //Verifica se a conexão retorna um obejo mysqli
       if(gettype($conexao) == "object"){
          //parametros para execução da query
          $param = ['id' => $data->id];
@@ -131,7 +131,7 @@ class UsuarioModel {
             $selectAll->execute($param);
             return $selectAll;
          }catch(\PDOException $e) {
-            //retorna o erro no delete
+            //retorna o erro
             return $e->getMessage();
          }
       
@@ -140,13 +140,33 @@ class UsuarioModel {
          return $conexao;
       }
    }
-
+   /**
+    * Função para fazer o selct pelo username
+    *
+    * @param [stdclass] $data
+    * @return object ou @return Exception
+    */
    public static function getUsername($data) {
+    //Código do método
+      //Executa um metodo da classe Conexao
       $conexao = Conexao::conectar();
-      $param = ['id' => $data->id];
-      $selectAll = $conexao->prepare("SELECT * FROM usuario WHERE idusuario = :id");
-      $selectAll->execute($param);
+      //Verifica se a conexão retorna um obejo mysqli
+      if(gettype($conexao) == "object"){
+         //parametros para execução da query
+         $param = ['username' => $data->username];
+         //SQl para select no banco de dados
+         $selectAll = $conexao->prepare("SELECT * FROM usuario WHERE username = :username");
+         try {
+            //Tenta executar o sql;
+            $selectAll->execute($param);
             return $selectAll;
-
+         }catch(\PDOException $e) {
+            //retorna o erro
+            return $e->getMessage();
+         }
+      }else {
+         //retorna a conexao como erro de conexao 
+         return $conexao;
+      }
    }
 }

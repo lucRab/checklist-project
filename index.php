@@ -6,16 +6,22 @@ use App\model\UsuarioModel;
 use App\model\ChecklistModel;
 
 $data = new stdClass;
-$data->nome = "nometeste";
+$data->nome = "unameTeste";
 $data->senha = "senhateste";
 $data->email = "teste@gmail.com";
 $data->username = "teste";
-$data->descricao = "descrição teste";
-$data->id = 4;
-$data->status = true;
+$data->descricao = "updescrição teste";
+$data->id = 6;
+$data->status = false;
 
 //$teste = ChecklistModel::createChecklist($data);
 //$teste = UsuarioModel::createUser($data);
-$teste = ChecklistModel::setItem($data);
+//$teste = ChecklistModel::setItem($data);
 //$teste = ChecklistModel::deleteChecklist($data);
+//$t = UsuarioModel::getUsername($data);
+//$t = UsuarioModel::getAll($data);
+//$t = ChecklistModel::getAll($data);
+//$teste = $t->fetchALL(PDO::FETCH_OBJ);
+//$teste = ChecklistModel::updateItem($data);
+$teste = ChecklistModel::deleteItem($data);
 var_dump($teste);
