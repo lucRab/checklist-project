@@ -11,7 +11,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+CREATE database check_list;
+USE check_list;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -29,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `checklist` (
   `idchecklist` int NOT NULL,
-  `usuario_idusuario` int(11) NOT NULL,
+  `idusuario` int(11) NOT NULL,
   `status` bit(1),
   `descricao` varchar(300) DEFAULT NULL,
   `name` varchar(40) DEFAULT NULL
@@ -46,7 +47,7 @@ CREATE TABLE `item` (
   `name` varchar(20) NOT NULL,
   `descricao` varchar(45) DEFAULT NULL,
   `status` bit(1),
-  `checklist_idchecklist` int(11) NOT NULL
+  `idchecklist` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -73,14 +74,14 @@ CREATE TABLE `usuario` (
 --
 ALTER TABLE `checklist`
   ADD PRIMARY KEY (`idchecklist`),
-  ADD KEY `fk_checklist_usuario` (`usuario_idusuario`);
+  ADD KEY `fk_checklist_usuario` (`idusuario`);
 
 --
 -- Índices para tabela `item`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`iditem`),
-  ADD KEY `fk_item_checklist1` (`checklist_idchecklist`);
+  ADD KEY `fk_item_checklist1` (`idchecklist`);
 
 --
 -- Índices para tabela `usuario`
@@ -118,13 +119,13 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `checklist`
 --
 ALTER TABLE `checklist`
-  ADD CONSTRAINT `fk_checklist_usuario` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_checklist_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `item`
 --
 ALTER TABLE `item`
-  ADD CONSTRAINT `fk_item_checklist1` FOREIGN KEY (`checklist_idchecklist`) REFERENCES `checklist` (`idchecklist`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_item_checklist1` FOREIGN KEY (`idchecklist`) REFERENCES `checklist` (`idchecklist`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,7 +7,7 @@ require_once "./core/Database.php";
 /**
  *  Classse model responsavel pelos dados do usuario
  * @author Lucas Rabelo <lucasrabelo186@gmail.com>
- * @version ${3.5:3.5.0
+ * @version ${4:4.0.0
  */
 /** Requerimento do código para fazer conexão com o banco de dados */
 
@@ -141,4 +141,12 @@ class UsuarioModel {
       }
    }
 
+   public static function getUsername($data) {
+      $conexao = Conexao::conectar();
+      $param = ['id' => $data->id];
+      $selectAll = $conexao->prepare("SELECT * FROM usuario WHERE idusuario = :id");
+      $selectAll->execute($param);
+            return $selectAll;
+
+   }
 }

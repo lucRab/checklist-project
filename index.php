@@ -11,11 +11,11 @@ $data->senha = "senhateste";
 $data->email = "teste@gmail.com";
 $data->username = "teste";
 $data->descricao = "descrição teste";
-$data->id = 2;
+$data->id = 4;
 $data->status = true;
 
 //$teste = ChecklistModel::createChecklist($data);
 //$teste = UsuarioModel::createUser($data);
-//$teste = ChecklistModel::setItem($data);
-$teste = ChecklistModel::deleteChecklist($data);
+$teste = ChecklistModel::setItem($data);
+//$teste = ChecklistModel::deleteChecklist($data);
 var_dump($teste);

@@ -4,12 +4,18 @@ use Core\conexao\Conexao;
 use PDO;
 require_once "./core/Database.php";
 /**
+/**
  * Class model resposavel pelos dados dos checklists
  * @author Lucas Rabelp <lucasrabelo@gmail.com>
- * @version ${2:2.0.0
+ * @version ${3:3.5.0
  */
 class ChecklistModel {
-
+/**
+ * Função responsavel para criar o checklist
+ *
+ * @param [stdclass] $data
+ * @return int
+ */
     public static function createChecklist($data) {
     //Código do método
         //Executa um metodo da classe Conexao
@@ -20,7 +26,7 @@ class ChecklistModel {
             $param = ['nome' => $data->nome, 'status' => false,
             'descricao' => $data->descricao, 'idusuario' => $data->id];
             //SQl para inserir no banco de dados
-            $insert = $conexao->prepare("INSERT INTO checklist (name, status, descricao, usuario_idusuario) 
+            $insert = $conexao->prepare("INSERT INTO checklist (name, status, descricao, idusuario) 
             VALUES (:nome, :status, :descricao, :idusuario)");
             try {
                 //Tenta executar o sql;
@@ -34,7 +40,6 @@ class ChecklistModel {
         }else {
             return $conexao;
         }
-
     }
 
     public static function updateChecklist($data) {
@@ -80,12 +85,9 @@ class ChecklistModel {
         }else {
             return $conexao;
         }
-
     }
 
-    public static function getAll($data) {
-        $conexao = Conexao::conectar();
-    }
+    public static function getAll() {}
     
     public static function setItem($data) {
     //Código do método
@@ -94,17 +96,15 @@ class ChecklistModel {
         //Verifica se a conexão retorna um obejo mysqli
         if(gettype($conexao) == "object") {
             //parametros para execução da query
-            $param = ['nome' => $data->nome, 'status' => false,
-            'descricao' => $data->descricao, 'id' => $data->id];
+            $param = ['nome' => $data->nome, 'status' => $data->status,
+            'descricao' => $data->descricao, 'idchecklist' => $data->id];
             //SQl para inserir no banco de dados
-            $insert = $conexao->prepare("INSERT INTO item (name, status, descricao, checklist_idchecklist) 
-            VALUES (:nome, :status, :descricao, :id)");
+            $insert = $conexao->prepare("INSERT INTO item (name, status, descricao, idchecklist)
+            VALUES (:nome, :status, :descricao, :idchecklist)");
             try {
                 //Tenta executar o sql;
                 $insert->execute($param);
-                //Captura o id gerado no insert 
-                $id = $conexao->lastInsertId();
-                return $id;
+                return $insert;
             }catch(\PDOException $e) {
                 return $e->getMessage();
             }
@@ -112,4 +112,6 @@ class ChecklistModel {
             return $conexao;
         }
     }
+    public static function updateItem() {}
+    public static function deleteItem() {}
 }
