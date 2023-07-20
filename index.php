@@ -1,27 +1,38 @@
 <?php
 
-require_once "app/model/UsuarioModel.php";
-require_once "app/model/ChecklistModel.php";
-use App\model\UsuarioModel;
-use App\model\ChecklistModel;
+require __DIR__ ."/vendor/autoload.php";
 
-$data = new stdClass;
-$data->nome = "unameTeste";
-$data->senha = "senhateste";
-$data->email = "teste@gmail.com";
-$data->username = "teste";
-$data->descricao = "updescrição teste";
-$data->id = 6;
-$data->status = false;
+use CoffeeCode\Router\Router;
+use App\controller\LoadPages;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-//$teste = ChecklistModel::createChecklist($data);
-//$teste = UsuarioModel::createUser($data);
-//$teste = ChecklistModel::setItem($data);
-//$teste = ChecklistModel::deleteChecklist($data);
-//$t = UsuarioModel::getUsername($data);
-//$t = UsuarioModel::getAll($data);
-//$t = ChecklistModel::getAll($data);
-//$teste = $t->fetchALL(PDO::FETCH_OBJ);
-//$teste = ChecklistModel::updateItem($data);
-$teste = ChecklistModel::deleteItem($data);
-var_dump($teste);
+session_start();
+
+$router = new Router(URL_BASE);
+
+/**
+ * Controllers
+ */
+$router->namespace("App/controller");
+/**
+ * Login/Cadastro
+ */
+$router->group("login");
+$router->get("/","LoadPages:loginPage");
+
+/**
+ * Erros
+ */
+$router->group("ooops");
+$router->get("/{errcode}", function ($data) {
+    echo "<h1>Erro {$data["errcode"]}</h1>";
+    var_dump($data);
+});
+
+$router->dispatch();
+
+if($router->error()){
+    $router->redirect("/ooops/{$router->error()}");
+};
