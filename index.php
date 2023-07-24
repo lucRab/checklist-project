@@ -15,12 +15,13 @@ $router = new Router(URL_BASE);
 /**
  * Controllers
  */
-$router->namespace("App/controller");
+$router->namespace("App\controller");
 /**
  * Login/Cadastro
  */
-$router->group("login");
+$router->group("/");
 $router->get("/","LoadPages:loginPage");
+$router->get("/cadastro","LoadPages:cadastroPage");
 
 /**
  * Erros

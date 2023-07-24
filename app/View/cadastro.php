@@ -9,7 +9,7 @@
     <body>>
         <style>
             body {
-            background-image: url('assets/img/backgroud.gif');
+            background-image: url('app/View/assets/img/backgroud.gif');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -43,7 +43,7 @@
                                     <button type="submit" class="btn btn-light">cadastrar</button>
                                 </div>
                                 <p class="card-link mb-3 mt-4 text-center">                            
-                                    <a class="link-opacity-50" href="loginPage.php">Já tem conta?</a>
+                                    <a class="link-opacity-50" href="http://localhost/checklist/">Já tem conta?</a>
                                 </p>
                             </div>
                         </form>

@@ -9,7 +9,7 @@
     <body>
         <style>
             body {
-            background-image: url('assets/img/backgroud.gif');
+            background-image: url('app/View/assets/img/backgroud.gif');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col bg-dark bg-opacity-50 text-white">
                     <h1><br>SISTEMA CHECKLIST</h1>
-                    <br><img src="assets/img/logo.png" class="rounded" alt="Cinque Terre">
+                    <br><img src="app/View/assets/img/logo.png" class="rounded" alt="Cinque Terre">
                 </div>
                 <div class="col">
                     <div class="card mx-auto bg-dark bg-opacity-75 text-white" style="width: 35rem;">
@@ -39,7 +39,7 @@
                                 </div>
                                 <p class="card-link mb-3 mt-4">
                                     Sem conta?
-                                    <a class="link-opacity-50" href="cadastro.php">Cadastre-se</a>
+                                    <a class="link-opacity-50" href="http://localhost/checklist/cadastro">Cadastre-se</a>
                                 </p>
                             </div>
                         </form>

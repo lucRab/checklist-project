@@ -20,4 +20,9 @@ class LoadPages{
         session_destroy();
         require_once __DIR__. "/../View/login.php";
     }
+    public function cadastroPage($data) {
+
+        session_destroy();
+        require_once __DIR__. "/../View/cadastro.php";
+    }
 }
