@@ -11,18 +11,14 @@ use PHPMailer\PHPMailer\Exception;
  */
 class LoadPages{
 
-    public function __construct($router)
-    {
-        $this->router = $router;
+   
+    public function loginPage() {
+        return Controller::view('login');
     }
-    public function loginPage($data) {
-
-        session_destroy();
-        require_once __DIR__. "/../View/login.php";
+    public function cadastroPage() {
+        return Controller::view('cadastro');
     }
-    public function cadastroPage($data) {
-
-        session_destroy();
-        require_once __DIR__. "/../View/cadastro.php";
+    public function homePage() {
+        return Controller::view('home');
     }
 }

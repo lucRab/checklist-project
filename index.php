@@ -1,39 +1,23 @@
 <?php
 
-require __DIR__ ."/vendor/autoload.php";
+require "vendor/autoload.php";
 
-use CoffeeCode\Router\Router;
-use App\controller\LoadPages;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+require "source/router.php";
 
-session_start();
+try {
+    $uri = parse_url($_SERVER["REQUEST_URI"])['path'];
+    
+    $request = $_SERVER["REQUEST_METHOD"];
+    
+    if(!isset($routes[$request])){
+        throw new Exception("A rota não exite");
+    }
+    if(!array_key_exists($uri, $routes[$request])){
+       throw new Exception("teste"); 
+    }
 
-$router = new Router(URL_BASE);
-
-/**
- * Controllers
- */
-$router->namespace("App\controller");
-/**
- * Login/Cadastro
- */
-$router->group("/");
-$router->get("/","LoadPages:loginPage");
-$router->get("/cadastro","LoadPages:cadastroPage");
-
-/**
- * Erros
- */
-$router->group("ooops");
-$router->get("/{errcode}", function ($data) {
-    echo "<h1>Erro {$data["errcode"]}</h1>";
-    var_dump($data);
-});
-
-$router->dispatch();
-
-if($router->error()){
-    $router->redirect("/ooops/{$router->error()}");
-};
+    $controller = $routes[$request][$uri];
+    $controller();
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
