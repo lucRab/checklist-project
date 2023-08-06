@@ -1,7 +1,7 @@
     <?php $this->layout('main') ?>
         <style>
             body {
-            background-image: url('app/View/assets/img/backgroud.gif');
+            background-image: url('app/View/assets/img/backgroud.jpeg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -15,7 +15,7 @@
                 </div>
                 <div class="col">
                     <div class="card mx-auto bg-dark bg-opacity-75 text-white" style="width: 35rem;">
-                        <form id="form">
+                        <form id="formlogin">
                             <div class="card-body ">        
                                 <h2 class="card-title mb-3 mt-5" style="font-size: 35px;">Olá!</h2>
                                 <div class="form-floating mb-3 mt-4">
@@ -40,5 +40,5 @@
             </div>
         </div>
        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script type="module" src="app/View/assets/js/logincadastro.js"></script>
+        <script type="module" src="app/View/assets/js/login.js"></script>
 

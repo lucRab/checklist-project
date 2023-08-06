@@ -12,13 +12,13 @@ use PHPMailer\PHPMailer\Exception;
 class LoadPages{
 
    
-    public function loginPage() {
+    public function loginPage($data) {
         return Controller::view('login');
     }
-    public function cadastroPage() {
+    public function cadastroPage($data) {
         return Controller::view('cadastro');
     }
-    public function homePage() {
+    public function homePage($data) {
         return Controller::view('home');
     }
 }

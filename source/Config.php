@@ -1,3 +1,3 @@
 <?php
 
-define("URL_BASE", "http://localhost/checklist");
+define("URI", parse_url($_SERVER["REQUEST_URI"])['path']);

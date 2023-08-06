@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <header>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <title>Login</title>
-    </header>
-    <body>
     <?php $this->layout('main') ?>
         <style>
             body {
@@ -20,7 +11,7 @@
             <div class="row">
                 <div class="col">
                     <div class="card mx-auto bg-dark bg-opacity-50 text-white" style="width: 35rem;">
-                        <form>
+                        <form id="formcadastro">
                             <div class="card-body ">  
                             <h1 class="card-title text-center">SISTEMA CHECKLIST</h1>
                                 <h2 class="card-title mb-2 mt-4 text-center" style="font-size: 35px;">Faça o seu registro</h2>
@@ -52,5 +43,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module" src="app/View/assets/js/cadastro.js"></script>

@@ -3,7 +3,7 @@ namespace App\model;
 
 use Core\conexao\Conexao;
 use PDO;
-require_once "./core/Database.php";
+require_once "core/Database.php";
 /**
  *  Classse model responsavel pelos dados do usuario
  * @author Lucas Rabelo <lucasrabelo186@gmail.com>
