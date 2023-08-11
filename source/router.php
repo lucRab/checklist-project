@@ -32,7 +32,7 @@ $routes = [
     ],
     'POST' => [
         "/checklist/" => fn() => load('LoadPages', 'loginPage'),
-        "/checklist/cadastro" => fn() => load('LoadPages', 'cadastroPage'),
+        "/checklist/token/cadastro" => fn() => load('UsuarioController', 'createUser'),
         "/checklist/token" => fn() => load('UsuarioController','loginUser')
     ]
 ];

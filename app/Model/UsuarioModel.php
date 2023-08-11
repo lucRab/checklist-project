@@ -35,9 +35,9 @@ class UsuarioModel {
                //Tenta executar o sql;
                $createUser->execute($param);
                //Captura o id gerado no insert      
-               $id = $conexao->lastInsertId();
+               $id = intval($conexao->lastInsertId());
                //retorna o id gerado
-               return $id;
+               return ($id);
                
             }catch(\PDOException $e) {
                //retorna o erro
@@ -153,7 +153,7 @@ class UsuarioModel {
       //Verifica se a conexão retorna um obejo mysqli
       if(gettype($conexao) == "object"){
          //parametros para execução da query
-         $param = ['username' => $data->username];
+         $param = ['username' => $data];
          //SQl para select no banco de dados
          $selectAll = $conexao->prepare("SELECT * FROM usuario WHERE username = :username");
          try {

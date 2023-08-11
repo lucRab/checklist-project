@@ -16,12 +16,12 @@
                             <h1 class="card-title text-center">SISTEMA CHECKLIST</h1>
                                 <h2 class="card-title mb-2 mt-4 text-center" style="font-size: 35px;">Faça o seu registro</h2>
                                 <div class="form mb-3 mt-4">
-                                    <label for="username" class="form-label">Nome</label>
-                                    <input id="username" type="text" class="form-control" placeholder="Informe seu nome"/>
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input id="nome" type="text" class="form-control" placeholder="Informe seu nome"/>
                                 </div>
                                 <div class="form mb-3 mt-4">
-                                    <label for="username" class="form-label">Email</label>
-                                    <input id="username" type="text" class="form-control" placeholder="Informe seu email"/>
+                                    <label for="email" class="form-label">Email</label>
+                                    <input id="email" type="text" class="form-control" placeholder="Informe seu email"/>
                                 </div>
                                 <div class="form mb-3 mt-4">
                                     <label for="username" class="form-label">Usuario</label>
