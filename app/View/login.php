@@ -23,11 +23,13 @@
                                     <label for="username" class="form-label text-dark">Usuario</label>
                                 </div>
                                 <div class="form-floating mb-3 mt-4">
-                                    <input id="senha" name="senha" type="text" class="form-control " placeholder="Informe sua senha"/>
+                                    <input id="senha" name="senha" type="password" class="form-control " placeholder="Informe sua senha"/>
                                     <label for="senha" class="form-label text-dark">Senha</label>
                                 </div>
                                     <div class="mb-3 mt-4">
                                     <button type="submit" class="btn btn-light btn-lg">Logar</button>
+                                </div>
+                                <div class="text-danger"  id="alert">
                                 </div>
                                 <p class="card-link mb-3 mt-4">
                                     Sem conta?

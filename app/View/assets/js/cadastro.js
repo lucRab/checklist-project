@@ -8,6 +8,7 @@ form2.addEventListener('submit', async function(e) {
     const senha = document.querySelector('#senha').value;
     const nome = document.querySelector('#nome').value;
     const email = document.querySelector('#email').value;
+    const alerta = document.querySelector('#alert');
     let json;
     try {
         const response = await fetch('http://localhost/checklist/token/cadastro', {
@@ -25,6 +26,7 @@ form2.addEventListener('submit', async function(e) {
         localStorage.setItem('token', json);
         window.location.replace('http://localhost/checklist/home');
     } catch(error) {
-        alert('erro');
+        //alert('erro');
+        alerta.innerText = json;
     }    
 });

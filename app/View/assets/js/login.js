@@ -6,6 +6,7 @@ form.addEventListener('submit', async function(e) {
     const formData = new FormData(form);
     const user = document.querySelector('#username').value;
     const senha = document.querySelector('#senha').value;
+    const alerta = document.querySelector('#alert');
     let json;
     try {
         const response = await fetch('http://localhost/checklist/token', {
@@ -20,7 +21,8 @@ form.addEventListener('submit', async function(e) {
         localStorage.setItem('token', json);
         window.location.replace('http://localhost/checklist/home');
     } catch(error) {
-        alert('erro');
+         //alert(json);
+        alerta.innerText = json;
     }     
 });
 

@@ -32,6 +32,7 @@ class UsuarioController {
         if($get->fetch()){
             //retorna um erro 401 caso exista
             http_response_code(401);
+            echo json_encode('Este usuario já existe');
             die;
         }
        //metodo para criar um usuario
@@ -69,10 +70,12 @@ class UsuarioController {
         $userFoud = $get->fetch();
         if(!$userFoud) {
             http_response_code(401);
+            echo json_encode('Usuario incorreto');
             die;
         }
         if($senha !== $userFoud['senha']) {
             http_response_code(401);
+            echo json_encode('Senha incorreta');
             die;
         }
 

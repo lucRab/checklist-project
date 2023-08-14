@@ -29,10 +29,12 @@
                                 </div>
                                 <div class="form mb-3 mt-4">
                                     <label for="senha" class="form-label">Senha</label>
-                                    <input id="senha" type="text" class="form-control " placeholder="crie sua senha"/>
+                                    <input id="senha" type="password" class="form-control " placeholder="crie sua senha"/>
                                 </div>
-                                    <div class="mb-3 mt-4 text-center">
+                                <div class="mb-3 mt-4 text-center">
                                     <button type="submit" class="btn btn-light">cadastrar</button>
+                                </div>
+                                <div id="alert">
                                 </div>
                                 <p class="card-link mb-3 mt-4 text-center">                            
                                     <a class="link-opacity-50" href="http://localhost/checklist/">Já tem conta?</a>
