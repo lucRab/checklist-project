@@ -4,6 +4,7 @@ use PDO;
 use Dotenv\Dotenv;
 use Firebase\JWT\JWT;
 use App\model\UsuarioModel;
+use Firebase\JWT\Key;
 /**
  * Classe responsavel pelos requerimento dos usuarios
  * @author Lucas Rabelo <lucasrabelo186@gmail.com>
@@ -88,5 +89,31 @@ class UsuarioController {
 
         $encode = JWT::encode($payload,$_ENV['KEY'],'HS256');
         echo json_encode($encode);
+    }
+
+    public function authToken(){
+        $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
+        $dotenv->load();
+
+        $dataRequest = getallheaders();
+        $authorization = $dataRequest['Authorization'];
+        $token = str_replace('Bearer','',$authorization);
+        
+        try{
+            $decoded = JWT::decode($token, new Key($_ENV['KEY'], 'HS256'));
+            if (empty($_SESSION)) {
+                $_SESSION['username'] = $decoded->username;
+                $_SESSION['id'] = $decoded->id;
+            }
+        } catch(\Throwable $e) {
+            http_response_code(401);
+            echo json_encode($e->getMessage());
+        }
+
+    }
+    public static function getUser($data) {
+
+        $get = UsuarioModel::getAll($data);
+        return $get;
     }
 }

@@ -13,12 +13,19 @@ class LoadPages{
 
    
     public function loginPage($data) {
+        session_destroy();
         return Controller::view('login');
     }
     public function cadastroPage($data) {
+        session_destroy();
         return Controller::view('cadastro');
     }
     public function homePage($data) {
+        session_destroy();
         return Controller::view('home');
+    }
+    public function perfilPage($data) {
+        session_destroy();
+        return Controller::view('perfil');
     }
 }

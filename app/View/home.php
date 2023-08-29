@@ -18,8 +18,8 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item" id="perfil">
+          <a class="nav-link" href="#">Perfil</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -29,7 +29,7 @@
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
            <li>
-              <hr class="dropdown-divider">
+              <hr class="dropdown-divider"></hr>
             </li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -38,30 +38,38 @@
     </div>
   </nav>
   <div class="container text-center">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="p-3 mb-3 bg-transparent"></div>
       <div class="p-3 mb-3 bg-transparent"></div>
       <div class="p-5 mb-6 bg-dark bg-opacity-25 text-white"><h1>Seja bem vindo!</h1></div>
       <div class="p-3 mb-3 bg-transparent"></div> 
-    <div class="col-sm-9">
-      <div class="p-3 mb-2 bg-transparent text-dark"></div>
-      <div class="p-3 mb-2 bg-transparent text-white"><h2>Seja bem vindo!</h2></div>
-      <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
-      <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
-      <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
-      <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
-        ola
-    </div>
-    <div class="col">
-      <div class="p-3 mb-2 bg-transparent text-dark"></div>
-      <div class="p-3 mb-2 bg-transparent text-dark"></div>
-      <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-      <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-      <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-      <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-      <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-      ola
-    </div>
+      <div class="col-sm-8">
+        <div class="p-3 mb-2 bg-transparent text-dark"></div>
+        <div class="p-3 mb-2 bg-transparent text-white">
+          <h2>Seus Checklist</h2>
+        </div>
+        <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+        <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+        <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+        <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+      </div>
+      <div class="col">
+        <div class="p-3 mb-2 bg-transparent text-dark"></div>
+        <div class="p-3 mb-2 bg-transparent text-dark"></div>
+        <div class="p-3 mb-2 bg-transparent text-white">
+          <div class="card text-bg-dark bg-opacity-75" style="width: 11rem;">
+            <div class="card-body">
+              <p class="card-text">Ultilize das nossas ferramentas cara criar seus checklists</p>
+              <a href="#" class="btn btn-primary">Crie já +</a>
+            </div>
+          </div>
+        </div>
+        <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+        <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+        <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+        <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+      </div>
     </div>
   </div>
-
+  <script src="app/View/assets/js/home.js"></script>
+  <script type="module" src="app/View/assets/js/auth.js"></script>
