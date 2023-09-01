@@ -116,4 +116,22 @@ class UsuarioController {
         $get = UsuarioModel::getAll($data);
         return $get;
     }
+
+    public function updateUser() {
+        $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
+        $dotenv->load();
+
+        $dataRequest = json_decode(file_get_contents('php://input'), true);
+        
+
+        $data = new \stdClass;
+        $data->nome = $dataRequest['name'];
+        $data->username = $dataRequest['user'];
+        $data->email = $dataRequest['email'];
+        $data->senha = $dataRequest['senha'];
+        $data->id = $_SESSION['id'];
+
+        $update = UsuarioModel::updateUsuario($data);
+        echo json_encode("Deu certo?");
+    }
 }

@@ -7,10 +7,9 @@ const response = await fetch('http://localhost/checklist/auth', {
     },
 });
 const json = JSON.stringify(await response.json());
-console.log(json);
 if(!response.ok) {
   alert(json);
-  localStorage.clear;
-  window.location.replace(login);
+  localStorage.removeItem('token');
+  window.location.replace('http://localhost/checklist/');
 }
   

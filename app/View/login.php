@@ -26,7 +26,7 @@
                                     <input id="senha" name="senha" type="password" class="form-control " placeholder="Informe sua senha"/>
                                     <label for="senha" class="form-label text-dark">Senha</label>
                                 </div>
-                                    <div class="mb-3 mt-4">
+                                <div class="mb-3 mt-4">
                                     <button type="submit" class="btn btn-light btn-lg">Logar</button>
                                 </div>
                                 <div class="text-danger"  id="alert">

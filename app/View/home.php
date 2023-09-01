@@ -21,18 +21,10 @@
         <li class="nav-item" id="perfil">
           <a class="nav-link" href="#">Perfil</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+        <li class="nav-item" id="sair">
+          <a class="nav-link" href="#">
+            Sair
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-           <li>
-              <hr class="dropdown-divider"></hr>
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
       </ul>
     </div>
@@ -60,7 +52,7 @@
           <div class="card text-bg-dark bg-opacity-75" style="width: 11rem;">
             <div class="card-body">
               <p class="card-text">Ultilize das nossas ferramentas cara criar seus checklists</p>
-              <a href="#" class="btn btn-primary">Crie já +</a>
+              <a href="http://localhost/checklist/criar" class="btn btn-primary">Crie já +</a>
             </div>
           </div>
         </div>

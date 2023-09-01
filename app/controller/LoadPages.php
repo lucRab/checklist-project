@@ -28,4 +28,8 @@ class LoadPages{
         session_destroy();
         return Controller::view('perfil');
     }
+    public function criarPage($data) {
+        session_destroy();
+        return Controller::view('checklist');
+    }
 }
