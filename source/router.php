@@ -28,11 +28,18 @@ $routes = [
         "/checklist/" => fn() => load('LoadPages', 'loginPage'),
         "/checklist/cadastro" => fn() => load('LoadPages', 'cadastroPage'),
         "/checklist/home" => fn() => load('LoadPages', 'homePage'),
+        "/checklist/perfil" => fn() => load('LoadPages', 'perfilPage'),
+        "/checklist/criar" => fn() => load('LoadPages', 'criarPage')
         
     ],
     'POST' => [
         "/checklist/" => fn() => load('LoadPages', 'loginPage'),
+        "/checklist/home" => fn() => load('LoadPages', 'homePage'),
         "/checklist/token/cadastro" => fn() => load('UsuarioController', 'createUser'),
-        "/checklist/token" => fn() => load('UsuarioController','loginUser')
+        "/checklist/token" => fn() => load('UsuarioController','loginUser'),
+        "/checklist/atualizar" => fn() => load('UsuarioController','updateUser'),
+        "/checklist/perfil" => fn() => load('LoadPages', 'perfilPage'),
+        "/checklist/auth" => fn() => load('UsuarioController', 'authToken'),
+        "/checklist/criar" => fn() => load('LoadPages', 'criarPage')
     ]
 ];
