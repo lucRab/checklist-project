@@ -50,13 +50,17 @@
                               <h5 class="modal-title" id="exampleModalLabel">Adicione Item</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                            <input id="titulo" name="titulo" type="text" class="form-control mb-2" placeholder="Nome do Item"/>                        
-                            <textarea class="form-control" aria-label="With textarea" placeholder="Descrição do Item"></textarea>  
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Aplicar</button>
-                            </div>
+                            <form id="formI">
+                              <div class="modal-body">
+                              <label for="nome" class="form-label text-white">Nome do Item</label>
+                                <input id="nome" name="nome" type="text" class="form-control mb-2" placeholder="Escreva o nome"/>                        
+                                <label for="descricao" class="form-label text-white">Descrição do Item</label>
+                                <textarea id="descricao" class="form-control" name="descricao" aria-label="With textarea" placeholder="Faça a descrição"></textarea>  
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-secondary" data-dismiss="modal">Aplicar</button>
+                              </div>
+                            </form>
                           </div>
                         </div>
                       </div>
@@ -72,19 +76,22 @@
             <div class="card mx-auto bg-dark bg-opacity-75 text-white">
                 <div class="card-header bg-dark bg-opacity-75">
                     <div class="text-white text-center"><h3>Crie seu checklist</h3></div>
-                    <form id="formtl">
-                      <input id="titulo" name="titulo" type="text" class="form-control" placeholder="Escreva o titulo"/>
+                    
+                    <form id="formT" action="app/View/teste.php">
+                    <input id="a"name="a"  class="form-control" placeholder="Escreva o titulo"/>
                       <button type="submit" class="btn btn-dark">Enviar</button>
                     </form>
                   </div>
                 <div class="card-boddy">
-                  <div class="text-center" id="xtitulo"><h4 id="xtitulo" ></h4></div>
+                  <div class="text-center"><h4 id="xtitulo" ></h4></div>
+                  <div id="xitem">
+                  </div>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
   </div>
 
-  <script type="module" src="app/View/assets/js/auth.js"></script>
+  <!-- <script type="module" src="app/View/assets/js/auth.js"></script> -->
   <script type="module" src="app/View/assets/js/checklist.js"></script>
   
