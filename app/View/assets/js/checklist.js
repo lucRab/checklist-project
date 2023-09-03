@@ -1,9 +1,11 @@
 const home = document.getElementById('home');
 const sair = document.getElementById('sair');
 const perfil = document.getElementById('perfil');
-const formtl = document.getElementById('formtl');
+const formtl = document.getElementById('formT');
 const xtitulo = document.querySelector('#xtitulo');
+const formI = document.getElementById('formI');
 var titulo;
+var item
 home.addEventListener('click', async function(e) {
     e.preventDefault();
 
@@ -23,8 +25,15 @@ sair.addEventListener('click', async function(e) {
 });
 formtl.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const t = document.querySelector('#titulo').value;
-    titulo = t;
-    xtitulo.innerText = t;
-    console.log(t);
+    const a = document.querySelector('#a').value;
+    xtitulo.innerText = a;
+    titulo = a;
+    console.log(titulo);
+});
+
+formI.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    item = item + [document.querySelector('#nome').value, document.querySelector('#descricao').value];
+    console.log(item);
+
 });

@@ -1,12 +1,12 @@
 const token = localStorage.getItem('token');
-
+let json;
 const response = await fetch('http://localhost/checklist/auth', {
     method: 'POST',
     headers: {
       Authorization: 'Bearer' + token,
     },
 });
-const json = JSON.stringify(await response.json());
+json = JSON.stringify(await response.json());
 if(!response.ok) {
   alert(json);
   localStorage.removeItem('token');
