@@ -1,21 +1,11 @@
-const home = document.getElementById('home');
 const sair = document.getElementById('sair');
-const perfil = document.getElementById('perfil');
 const formtl = document.getElementById('formT');
 const xtitulo = document.querySelector('#xtitulo');
 const formI = document.getElementById('formI');
-var titulo;
-var item
-home.addEventListener('click', async function(e) {
-    e.preventDefault();
-
-    window.location.replace('http://localhost/checklist/home');
-});
-perfil.addEventListener('click', async function(e) {
-    e.preventDefault();
-
-    window.location.replace('http://localhost/checklist/perfil');
-});
+const xitem = document.querySelector('#xitem');
+var item;
+var titems = [];
+var i = 0;
 
 sair.addEventListener('click', async function(e) {
     e.preventDefault();
@@ -31,9 +21,27 @@ formtl.addEventListener('submit', async function(e) {
     console.log(titulo);
 });
 
-formI.addEventListener('submit', async function(e) {
+formI.addEventListener('submit', async function dsd(e) {
     e.preventDefault();
-    item = item + [document.querySelector('#nome').value, document.querySelector('#descricao').value];
-    console.log(item);
-
+    item = [document.querySelector('#nome').value, document.querySelector('#descricao').value];
+    xitem.insertAdjacentHTML('beforebegin',
+    "<div class="+"'p-3'"+"id="+ i +">"+
+            "<input class="+"'form-check-input'"+"type="+"checkbox"+">"+
+            "<label class="+"'form-check-label p-3'"+"for="+"flexCheckDefault"+">"+
+             item[0]+
+            "</label>"+
+            "<button class=" + "'btn btn-light'" + "onclick=" +"'function ff()'" + ">" + 
+                "Excluir" +
+            "</button>" +
+        "<div>"+"Descrição: "+item[1]+"</div>"+
+    "</div>");
+    titems.push(item);
+    console.log(titems);
+    i ++;
+    console.log (i);
 });
+
+function ff(){
+
+    console.log('as');
+};

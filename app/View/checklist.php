@@ -40,10 +40,10 @@
                 </div>
                 <div class="card-boddy">
                     <div class="p-3 mb-2 text-white ">
-                      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal1">
                         + Item
                       </button>
-                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLabel1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content bg-dark">
                             <div class="modal-header">
@@ -65,7 +65,6 @@
                         </div>
                       </div>
                     </div>
-                    <div class="p-3 mb-2 bg-dark text-white">- Item</div>
                     <div class="p-3 mb-2 bg-dark text-white">Editar</div>
                     <div class="p-3 mb-2 bg-dark text-white">Salvar</div>
                     <div class="p-3 mb-2 bg-dark text-white">Excluir</div>
@@ -77,7 +76,7 @@
                 <div class="card-header bg-dark bg-opacity-75">
                     <div class="text-white text-center"><h3>Crie seu checklist</h3></div>
                     
-                    <form id="formT" action="app/View/teste.php">
+                    <form id="formT">
                     <input id="a"name="a"  class="form-control" placeholder="Escreva o titulo"/>
                       <button type="submit" class="btn btn-dark">Enviar</button>
                     </form>
