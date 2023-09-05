@@ -3,6 +3,7 @@ const formtl = document.getElementById('formT');
 const xtitulo = document.querySelector('#xtitulo');
 const formI = document.getElementById('formI');
 const xitem = document.querySelector('#xitem');
+const ul = document.querySelector('#ulitem');
 var item;
 var titems = [];
 var i = 0;
@@ -21,27 +22,45 @@ formtl.addEventListener('submit', async function(e) {
     console.log(titulo);
 });
 
-formI.addEventListener('submit', async function dsd(e) {
+formI.addEventListener('submit', function(e) {
     e.preventDefault();
     item = [document.querySelector('#nome').value, document.querySelector('#descricao').value];
-    xitem.insertAdjacentHTML('beforebegin',
-    "<div class="+"'p-3'"+"id="+ i +">"+
-            "<input class="+"'form-check-input'"+"type="+"checkbox"+">"+
-            "<label class="+"'form-check-label p-3'"+"for="+"flexCheckDefault"+">"+
-             item[0]+
-            "</label>"+
-            "<button class=" + "'btn btn-light'" + "onclick=" +"'function ff()'" + ">" + 
-                "Excluir" +
-            "</button>" +
-        "<div>"+"Descrição: "+item[1]+"</div>"+
-    "</div>");
+    const divI = document.createElement('div');
+    const divD = document.createElement('div');
+    const liI = document.createElement('li');
+    const inputI = document.createElement('input',);
+    const labelI = document.createElement('label');
+    const buttonI = document.createElement('button');
+
+    ul.appendChild(divI);
+    divI.appendChild(liI);
+    liI.appendChild(inputI);
+    liI.appendChild(labelI);
+    liI.appendChild(buttonI);
+    divI.appendChild(divD);
+    
+    divI.setAttribute("class", "p-3")
+    inputI.classList.add("form-check-input");
+    inputI.setAttribute("type", "checkbox");
+    labelI.setAttribute("class","form-check-label p-3");
+    labelI.setAttribute("for","flexCheckDefault");
+    labelI.innerText = item[0];
+    buttonI.setAttribute("class", "btn btn-danger");
+    buttonI.innerText = "Excluir"
+    divD.innerText = "Descrição:" + item[1];
+
     titems.push(item);
-    console.log(titems);
+    buttonI.addEventListener("click",() => {
+        ul.removeChild(divI);
+        titems.indexOf(i);
+    });
     i ++;
-    console.log (i);
-});
+    
+    console.log(titems);
+});  
 
-function ff(){
+function funcao() {
 
-    console.log('as');
-};
+    console.log('teste');
+}
+

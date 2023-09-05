@@ -15,10 +15,10 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item" id="home">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/checklist/home">Home</a>
         </li>
         <li class="nav-item" id="perfil">
-          <a class="nav-link" href="#">Perfil</a>
+          <a class="nav-link" href="http://localhost/checklist/perfil">Perfil</a>
         </li>
         <li class="nav-item" id="sair">
           <a class="nav-link" href="#">
@@ -84,6 +84,7 @@
                 <div class="card-boddy">
                   <div class="text-center"><h4 id="xtitulo" ></h4></div>
                   <div id="xitem">
+                    <ul id="ulitem"></ul>
                   </div>
                 </div>
             </div>  
