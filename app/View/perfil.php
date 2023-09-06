@@ -2,6 +2,7 @@
   use App\controller\UsuarioController;
   $data = new stdClass;
   $data->id = $_SESSION['id'];
+  //var_dump($_SESSION);
   $get = UsuarioController::getUser($data);
   $teste = $get->fetch();?>
 <style>

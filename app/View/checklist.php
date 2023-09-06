@@ -65,9 +65,12 @@
                         </div>
                       </div>
                     </div>
-                    <div class="p-3 mb-2 bg-dark text-white">Editar</div>
                     <div class="p-3 mb-2 bg-dark text-white">Salvar</div>
-                    <div class="p-3 mb-2 bg-dark text-white">Excluir</div>
+                    <div class="p-3 mb-2 text-white">
+                      <button type="button" class="btn btn-dark" id="excluir">
+                        Excluir
+                      </button>
+                    </div>
                 </div>
             </div>
         </div>
