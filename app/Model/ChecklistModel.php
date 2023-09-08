@@ -145,7 +145,7 @@ class ChecklistModel {
         //Verifica se a conexão retorna um obejo mysqli
         if(gettype($conexao) == "object") {
             //parametros para execução da query
-            $param = ['nome' => $data->nome, 'status' => $data->status,
+            $param = ['nome' => $data->nome, 'status' => false,
             'descricao' => $data->descricao, 'idchecklist' => $data->id];
             //SQl para inserir no banco de dados
             $insert = $conexao->prepare("INSERT INTO item (name, status, descricao, idchecklist)
@@ -153,7 +153,8 @@ class ChecklistModel {
             try {
                 //Tenta executar o sql;
                 $insert->execute($param);
-                return $insert;
+                $id = $conexao->lastInsertId();
+                return $id;
             }catch(\PDOException $e) {
                 //retorna o erro
                 return $e->getMessage();

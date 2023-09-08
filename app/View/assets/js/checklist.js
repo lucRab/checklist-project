@@ -2,12 +2,11 @@ const sair = document.getElementById('sair');
 const formtl = document.getElementById('formT');
 const xtitulo = document.querySelector('#xtitulo');
 const formI = document.getElementById('formI');
-const xitem = document.querySelector('#xitem');
 const ul = document.querySelector('#ulitem');
 const excluir = document.getElementById('excluir');
+const salvar = document.getElementById('salvar');
 var titems = {};
 var i = 0;
-
 sair.addEventListener('click', async function(e) {
     e.preventDefault();
 
@@ -17,9 +16,11 @@ sair.addEventListener('click', async function(e) {
 formtl.addEventListener('submit', async function(e) {
     e.preventDefault();
     const a = document.querySelector('#a').value;
+    const b = document.querySelector('#b').value;
     xtitulo.innerText = a;
     titems = {
-        "titulo": a
+        "titulo": a,
+        "descricao": b
     };
 });
 
@@ -28,7 +29,7 @@ formI.addEventListener('submit', function(e) {
     var item = {
         "nome": document.querySelector('#nome').value,
         "descricao": document.querySelector('#descricao').value,
-        "id": i
+        "idItem": i
     };
     const divI = document.createElement('div');
     const divD = document.createElement('div');
@@ -108,3 +109,19 @@ excluir.addEventListener('click', () => {
         window.location.replace('http://localhost/checklist/home');
     }
 });
+salvar.addEventListener('click', async function(e) {
+    let json;
+
+    const response = await fetch('http://localhost/checklist/checklistcreate', {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id, item: titems,
+        })
+    });
+    //json = await response.json();
+    //console.log(json);
+});
+var a;

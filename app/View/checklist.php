@@ -1,12 +1,12 @@
 <?php $this->layout('main') ?>
 <style>
-            body {
-            background-image: url('app/View/assets/img/bgcriar.gif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-            }
-        </style>
+  body {
+    background-image: url('app/View/assets/img/bgcriar.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+</style>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
     <a class="navbar-brand fw-lighter fs-3" href="#">Checklist</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
@@ -28,7 +28,6 @@
       </ul>
     </div>
   </nav>
-
   <div class="container">
     <div class="row">
         <div class="p-3 mb-2 bg-transparent text-dark"></div>
@@ -65,7 +64,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class="p-3 mb-2 bg-dark text-white">Salvar</div>
+                    <div class="p-3 mb-2 text-white">
+                      <button type="button" class="btn btn-dark" id="salvar">
+                        Salvar
+                      </button>
+                    </div>
                     <div class="p-3 mb-2 text-white">
                       <button type="button" class="btn btn-dark" id="excluir">
                         Excluir
@@ -77,11 +80,11 @@
         <div class="col-sm-10">
             <div class="card mx-auto bg-dark bg-opacity-75 text-white">
                 <div class="card-header bg-dark bg-opacity-75">
-                    <div class="text-white text-center"><h3>Crie seu checklist</h3></div>
-                    
+                    <div class="text-white text-center"><h3>Crie seu checklist</h3></div>    
                     <form id="formT">
                     <input id="a"name="a"  class="form-control" placeholder="Escreva o titulo"/>
-                      <button type="submit" class="btn btn-dark">Enviar</button>
+                    <input id="b"name="b"  class="form-control" placeholder="Descrição do Checklist"/>  
+                    <button type="submit" class="btn btn-dark">Enviar</button>
                     </form>
                   </div>
                 <div class="card-boddy">
@@ -94,7 +97,12 @@
         </div>
     </div>
   </div>
-
-  <!-- <script type="module" src="app/View/assets/js/auth.js"></script> -->
+  
+  <script type="module" src="app/View/assets/js/auth.js"></script>
   <script type="module" src="app/View/assets/js/checklist.js"></script>
+  <script>  
+    var id = "<?php echo $_SESSION['id'] ?>";
+
+   
+  </script>
   
