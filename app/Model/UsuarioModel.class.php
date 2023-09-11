@@ -15,11 +15,12 @@ require_once "./core/Database.php";
  class UsuarioModel{
     /**
      * Função para inserir dados o usuario no banco de dados
-     *@param string $nome - nome do usuario
-     *@param string $senha - senha do usuario
-     *@param string $email - email do usuario
-     *@param string $username - nickname do usuario
-     * @return int ou @return Exception
+     * @param string $nome - nome do usuario
+     * @param string $senha - senha do usuario
+     * @param string $email - email do usuario
+     * @param string $username - nickname do usuario
+     * @return int $id
+     * @uses UserController::function createUser
      */
     public static function createUser($data) {
    //Código do método

@@ -17,23 +17,18 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item" id="home">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+        <li class="nav-item" id="perfil">
+          <a class="nav-link" href="#">Perfil</a>
+        </li>
+        <li class="nav-item" id="sair">
+          <a class="nav-link" href="#">
+            Sair
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-           <li>
-              <hr class="dropdown-divider"></hr>
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
       </ul>
     </div>
@@ -121,3 +116,4 @@
   </div>
 <script type="module" src="app/View/assets/js/auth.js"></script>
 <script type="module" src="app/View/assets/js/perfil.js"></script>
+<script type="module" src="app/View/assets/js/navbar.js"></script>

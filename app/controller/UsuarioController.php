@@ -134,4 +134,10 @@ class UsuarioController {
         $update = UsuarioModel::updateUsuario($data);
         echo json_encode("Deu certo?");
     }
+
+    public static function getChecklist($idusuario) {
+
+        $get = UsuarioModel::getChecklistUser($idusuario);
+        return $get;
+    }
 }

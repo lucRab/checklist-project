@@ -1,11 +1,6 @@
-const home = document.getElementById('home');
 const atualizar = document.getElementById('atualizar');
 
-home.addEventListener('click', async function(e) {
-    e.preventDefault();
 
-    window.location.replace('http://localhost/checklist/home');
-});
 
 atualizar.addEventListener('submit', async function(e) {
   e.preventDefault();

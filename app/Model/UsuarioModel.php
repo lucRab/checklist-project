@@ -12,13 +12,14 @@ require_once "core/Database.php";
 /** Requerimento do código para fazer conexão com o banco de dados */
 
 class UsuarioModel {
-    /**
+   /**
      * Função para inserir dados o usuario no banco de dados
-     *@param string $nome - nome do usuario
-     *@param string $senha - senha do usuario
-     *@param string $email - email do usuario
-     *@param string $username - nickname do usuario
-     * @return int ou @return Exception
+     * @param string $nome - nome do usuario
+     * @param string $senha - senha do usuario
+     * @param string $email - email do usuario
+     * @param string $username - nickname do usuario
+     * @return int $id
+     * @uses UserController::function createUser
      */
    public static function createUser($data) {
    //Código do método
@@ -143,7 +144,7 @@ class UsuarioModel {
    /**
     * Função para fazer o selct pelo username
     *
-    * @param [stdclass] $data
+    * @param object $data
     * @return object ou @return Exception
     */
    public static function getUsername($data) {
@@ -160,6 +161,38 @@ class UsuarioModel {
             //Tenta executar o sql;
             $selectAll->execute($param);
             return $selectAll;
+         }catch(\PDOException $e) {
+            //retorna o erro
+            return $e->getMessage();
+         }
+      }else {
+         //retorna a conexao como erro de conexao 
+         return $conexao;
+      }
+   }
+   /** 
+    * Função para fazer o select dos ids dos checklist
+    * do usuario
+    * @param int $idusuario: id do usuario
+    * @return array ids do checklist
+    * 
+   */
+   public static function getChecklistUser($idusuario) {
+    //Código do método
+      //Executa um metodo da classe Conexao
+      $conexao = Conexao::conectar();
+      //Verifica se a conexão retorna um obejo mysqli
+      if(gettype($conexao) == "object") {
+         //parametros para execução da query
+         $param = ['idusuario' => $idusuario];
+         //SQl para select no banco de dados
+         $selecchecklist = $conexao->prepare("SELECT c.idchecklist, c.name, c.descricao FROM checklist c 
+         JOIN usuario u ON c.idusuario = u.idusuario
+         WHERE u.idusuario = :idusuario");
+         try {
+            //Tenta executar o sql;
+            $selecchecklist->execute($param);
+            return $selecchecklist;
          }catch(\PDOException $e) {
             //retorna o erro
             return $e->getMessage();

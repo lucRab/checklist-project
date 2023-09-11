@@ -32,7 +32,7 @@ class ChecklistModel {
                 $insert->execute($param);
                //Captura o id gerado no insert      
                 $id = $conexao->lastInsertId();
-                return $id;
+                return intval($id);
             }catch(\PDOException $e) {
                 //retorna o erro
                 return $e->getMessage();
@@ -154,7 +154,7 @@ class ChecklistModel {
                 //Tenta executar o sql;
                 $insert->execute($param);
                 $id = $conexao->lastInsertId();
-                return $id;
+                return intval($id);
             }catch(\PDOException $e) {
                 //retorna o erro
                 return $e->getMessage();

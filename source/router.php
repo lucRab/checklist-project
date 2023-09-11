@@ -40,6 +40,7 @@ $routes = [
         "/checklist/atualizar" => fn() => load('UsuarioController','updateUser'),
         "/checklist/perfil" => fn() => load('LoadPages', 'perfilPage'),
         "/checklist/auth" => fn() => load('UsuarioController', 'authToken'),
-        "/checklist/criar" => fn() => load('LoadPages', 'criarPage')
+        "/checklist/criar" => fn() => load('LoadPages', 'criarPage'),
+        "/checklist/checklistcreate" => fn() => load('ChecklistController', 'createChecklist')
     ]
 ];

@@ -1,4 +1,3 @@
-const sair = document.getElementById('sair');
 const formtl = document.getElementById('formT');
 const xtitulo = document.querySelector('#xtitulo');
 const formI = document.getElementById('formI');
@@ -7,12 +6,7 @@ const excluir = document.getElementById('excluir');
 const salvar = document.getElementById('salvar');
 var titems = {};
 var i = 0;
-sair.addEventListener('click', async function(e) {
-    e.preventDefault();
 
-    localStorage.removeItem('token');
-    window.location.replace('http://localhost/checklist/');
-});
 formtl.addEventListener('submit', async function(e) {
     e.preventDefault();
     const a = document.querySelector('#a').value;
@@ -121,7 +115,6 @@ salvar.addEventListener('click', async function(e) {
             id: id, item: titems,
         })
     });
-    //json = await response.json();
-    //console.log(json);
+    json = await response.json();
+    console.log(json);
 });
-var a;

@@ -15,10 +15,10 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item" id="home">
-          <a class="nav-link active" aria-current="page" href="http://localhost/checklist/home">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item" id="perfil">
-          <a class="nav-link" href="http://localhost/checklist/perfil">Perfil</a>
+          <a class="nav-link" href="#">Perfil</a>
         </li>
         <li class="nav-item" id="sair">
           <a class="nav-link" href="#">
@@ -100,6 +100,7 @@
   
   <script type="module" src="app/View/assets/js/auth.js"></script>
   <script type="module" src="app/View/assets/js/checklist.js"></script>
+  <script type="module" src="app/View/assets/js/navbar.js"></script>
   <script>  
     var id = "<?php echo $_SESSION['id'] ?>";
 
