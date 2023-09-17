@@ -8,13 +8,13 @@
   $i = 0;
 ?>
 <style>
-            body {
-            background-image: url('app/View/assets/img/bghome.gif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-            }
-        </style>
+  body {
+    background-image: url('app/View/assets/img/bghome.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+</style>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
     <a class="navbar-brand fw-lighter fs-3" href="#">Checklist</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
@@ -60,19 +60,19 @@
           <h2>Seus Checklist</h2>
         </div>
         <?php  if(UsuarioController::getChecklist($_SESSION['id']) == true) {?>
-          <div class="row">
-          <?php while($i < $quantt) {?>
-            <div id="c<?php echo $i?>" class="col mb-3">
-              <div class="card bg-dark bg-opacity-75 text-white" style="width: 18rem;">
-                <div class="card-header"><h5 class="card-title"><?php echo $array[$i]->name;?></h5></div>
-                <div class="card-body bg-secondary bg-opacity-25 text-white">
-                  <p class="card-text"><?php echo $array[$i]->descricao;?></p>
-                  <button id="ba<?php echo $i?>" class="btn btn-primary">Abrir</button>
-                  <button id="be<?php echo $i?>" class="btn btn-danger">Excluir</button>
+          <div id="checklists" class="row">
+            <?php while($i < $quantt) {?>
+              <div id="<?php echo $array[$i]->idchecklist?>" class="col mb-3">
+                <div class="card bg-dark bg-opacity-75 text-white" style="width: 18rem;">
+                  <div class="card-header"><h5 class="card-title"><?php echo $array[$i]->name;?></h5></div>
+                  <div class="card-body bg-secondary bg-opacity-25 text-white">
+                    <p class="card-text"><?php echo $array[$i]->descricao;?></p>
+                    <button id="ba" class="btn btn-primary">Abrir</button>
+                    <button id="be" class="btn btn-danger">Excluir</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          <?php $i ++; }?>
+            <?php $i ++; }?>
           </div>
         <?php }?>
       </div>
@@ -81,3 +81,4 @@
   </div>
   <script type="module" src="app/View/assets/js/navbar.js"></script>
   <script type="module" src="app/View/assets/js/auth.js"></script>
+  <script type="module" src="app/View/assets/js/home.js"></script>

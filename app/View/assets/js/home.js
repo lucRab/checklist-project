@@ -1,15 +1,32 @@
-const perfil = document.getElementById('perfil');
-const sair = document.getElementById('sair');
+const check = document.getElementById('checklists');
 
-perfil.addEventListener('click', async function(e) {
-    e.preventDefault();
+check.addEventListener('click', async function(event) {
 
-    window.location.replace('http://localhost/checklist/perfil');
+    const id = event.target.parentNode.parentNode.parentNode.id;
+    const div = document.getElementById(id);
+    if(event.target.id == "be") {
+        div.innerHTML = "";
+        const response = await fetch('http://localhost/checklist/delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id:id})
+        });
+    }
+    if(event.target.id == "ba") {
+        let json;
+        const response = await fetch('http://localhost/checklist/cl/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id:id})
+        });
+        json = await response.json();
+        localStorage.setItem('checklist', json);
+        window.location.replace('http://localhost/checklist/visualizar');
+    }
 });
-
-sair.addEventListener('click', async function(e) {
-    e.preventDefault();
-
-    localStorage.removeItem('token');
-    window.location.replace('http://localhost/checklist/');
-});
+var b;
+var a;

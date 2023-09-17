@@ -1,10 +1,18 @@
 <?php 
-use App\model\UsuarioModel;
+use App\controller\ChecklistController;
+//use App\model\ChecklistModel;
+//use App\model\UsuarioModel;
 require_once('app/Model/UsuarioModel.php');
+require_once('app/Model/ChecklistModel.php');
+require_once('app/controller/ChecklistController.php');
+$idusuario = 6;
 
-$idusuario = 20;
+//$select = UsuarioModel::getidChecklistUser($idusuario);
+// //$teste = $select->fetchALL(PDO::FETCH_OBJ);
+// $check = new ChecklistController();
+// $get = $check->deleteChecklist($idusuario);
+//$teste = $get->fetchALL(PDO::FETCH_OBJ);
 
-$select = UsuarioModel::getidChecklistUser($idusuario);
-$teste = $select->fetchALL(PDO::FETCH_OBJ);
-
-var_dump($teste);
+//$get = ChecklistController::getChecklist($idusuario);
+$get = ChecklistController::getItem($idusuario);
+var_dump($get);

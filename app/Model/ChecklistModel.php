@@ -78,14 +78,14 @@ class ChecklistModel {
      * @param [stdclass] $data
      * @return object
      */
-    public static function  deleteChecklist($data) {
+    public static function  deleteChecklist($id) {
     //Código do método
         //Executa um metodo da classe Conexao
         $conexao = Conexao::conectar();
         //Verifica se a conexão retorna um obejo mysqli
         if(gettype($conexao) == "object") {
             //parametros para execução da query
-            $param = [ 'id' => $data->id];
+            $param = [ 'id' => $id];
             //SQl para delete no banco de dados
             $delete = $conexao->prepare("DELETE FROM checklist WHERE idchecklist = :id");
             try {
@@ -107,16 +107,17 @@ class ChecklistModel {
      * @param [stdclass] $data
      * @return object
      */
-    public static function getAll($data) {
+    public static function getItem($id) {
     //Código do método
         //Executa um metodo da classe Conexao
         $conexao = Conexao::conectar();
         //Verifica se a conexão retorna um obejo mysqli
         if(gettype($conexao) == "object") {
             //parametros para execução da query
-            $param = [ 'idchecklist' => $data->id];
+            $param = [ 'idchecklist' => $id];
             //SQl para select no banco de dados
-            $select = $conexao->prepare("SELECT * FROM checklist c
+            $select = $conexao->prepare("SELECT iditem, i.descricao as descricao_item, i.name as nome_item
+            FROM checklist c
             INNER JOIN item i on c.idchecklist = i.idchecklist
             WHERE c.idchecklist = :idchecklist");
              try {
@@ -131,6 +132,30 @@ class ChecklistModel {
             //retorna a conexao como erro de conexao 
             return $conexao;
         }
+    }
+
+    public static function getChecklist($id) {
+    //Código do método
+        //Executa um metodo da classe Conexao
+        $conexao = Conexao::conectar();
+        //Verifica se a conexão retorna um obejo mysqli
+        if(gettype($conexao) == "object") {
+            //parametros para execução da query
+            $param = [ 'idchecklist' => $id];
+
+            $select = $conexao->prepare("SELECT name, descricao FROM checklist WHERE idchecklist = :idchecklist");
+            try {
+                //Tenta executar o sql;
+                $select->execute($param);
+                return $select;
+            }catch(\PDOException $e) {
+                //retorna o erro
+                return $e->getMessage();
+            }
+        }else {
+            //retorna a conexao como erro de conexao 
+            return $conexao;
+        }    
     }
     /**
      * Função para criar um item no checklist
@@ -200,14 +225,14 @@ class ChecklistModel {
      * @param [stdclass] $data
      * @return object
      */
-    public static function deleteItem($data) {
+    public static function deleteItem($id) {
     //Código do método
         //Executa um metodo da classe Conexao
         $conexao = Conexao::conectar();
         //Verifica se a conexão retorna um obejo mysqli
         if(gettype($conexao) == "object") {
             //parametros para execução da query
-            $param = [ 'id' => $data->id];
+            $param = [ 'id' => $id];
             //SQl para delete no banco de dados
             $delete = $conexao->prepare("DELETE FROM item WHERE iditem = :id");
             try {
@@ -222,5 +247,32 @@ class ChecklistModel {
             //retorna a conexao como erro de conexao 
             return $conexao;
         }
+    }
+
+    public static function getIdItem($idchecklist) {
+        //Código do método
+        //Executa um metodo da classe Conexao
+        $conexao = Conexao::conectar();
+        //Verifica se a conexão retorna um obejo mysqli
+        if(gettype($conexao) == "object") {
+            //parametros para execução da query
+            $param = [ 'id' => $idchecklist];
+             //SQl para select no banco de dados
+            $get = $conexao->prepare("SELECT i.iditem FROM checklist c
+            JOIN item i ON i.idchecklist = c.idchecklist
+            WHERE c.idchecklist = :id");
+            try {
+                //Tenta executar o sql;
+                $get->execute($param);
+                return $get;
+            }catch(\PDOException $e) {
+                //retorna o erro
+                return $e->getMessage();
+            }
+        }else {
+            //retorna a conexao como erro de conexao 
+            return $conexao;
+        }
+
     }
 }

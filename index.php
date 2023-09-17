@@ -1,8 +1,10 @@
 <?php
 
-require "vendor/autoload.php";
+require __DIR__ . '/vendor/autoload.php';
 require "source/router.php";
 require "app/Model/UsuarioModel.php";
+require "app/Model/ChecklistModel.php";
+
 
 session_start();
 

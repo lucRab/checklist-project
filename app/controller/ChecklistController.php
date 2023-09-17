@@ -1,9 +1,8 @@
 <?php
 namespace App\controller;
-require "app/Model/ChecklistModel.php";
+
 use App\model\ChecklistModel;
 use Dotenv\Dotenv;
-
 class ChecklistController {
 
     public function createChecklist($chechlist) {
@@ -13,6 +12,7 @@ class ChecklistController {
         $dataRequest = json_decode(file_get_contents('php://input'), true);
         
         if($idUsuario = $dataRequest['id']) {
+            var_dump($dataRequest);
             $idUsuario = intval($idUsuario);
             $chechlist = $dataRequest['item'];
             $descricao = $chechlist["descricao"];
@@ -58,8 +58,57 @@ class ChecklistController {
         }
     }
 
+    public function deleteChecklist() {
+        $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
+        $dotenv->load();
+
+        $dataRequest = json_decode(file_get_contents('php://input'), true);
+        $id = $dataRequest['id'];
+       
+        if(self::getIdItem($id) == true) {
+            $item = self::getIdItem($id);
+            $qttd = sizeof($item) - 1;
+            $i = 0;
+            while($i < $qttd) {
+                self::deleteItem($item[$i]->iditem);
+                $i ++;
+            }
+        }
+        $delete = ChecklistModel::deleteChecklist($id);
+        return $delete;
+    }
     private function setItem($data) {
         $setitem = ChecklistModel::setItem($data); 
         return $setitem;
+    }
+
+    public static function getIdItem($idchecklist) {
+        $get = ChecklistModel::getIdItem($idchecklist);
+
+        $array = $get->fetchALL(\PDO::FETCH_OBJ);
+        return $array;
+    }
+
+    public static function deleteItem($iditem) {
+
+        $delete = ChecklistModel::deleteItem($iditem);
+        return $delete;
+    }
+
+    public static function getItem($idchecklist) {
+        
+        $get = ChecklistModel::getItem($idchecklist);
+        $array = $get->fetchALL(\PDO::FETCH_OBJ);
+        return $array;
+    }
+    public static function getChecklist($idchecklist) {
+        
+        $get = ChecklistModel::getChecklist($idchecklist);
+        if(gettype($get) != 'string') {
+            $array = $get->fetchALL(\PDO::FETCH_OBJ);
+            return $array;
+        }else {
+            return $get;
+        }
     }
 }

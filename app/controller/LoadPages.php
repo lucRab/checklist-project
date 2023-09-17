@@ -32,4 +32,8 @@ class LoadPages{
         session_destroy();
         return Controller::view('checklist');
     }
+    public function visualizarPage($data) {
+        session_destroy();
+        return Controller::view('viewCL');
+    }
 }

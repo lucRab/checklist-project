@@ -1,6 +1,5 @@
 <?php
 namespace App\controller;
-use PDO;
 use Dotenv\Dotenv;
 use Firebase\JWT\JWT;
 use App\model\UsuarioModel;
@@ -111,12 +110,6 @@ class UsuarioController {
         }
 
     }
-    public static function getUser($data) {
-
-        $get = UsuarioModel::getAll($data);
-        return $get;
-    }
-
     public function updateUser() {
         $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
         $dotenv->load();
@@ -130,14 +123,68 @@ class UsuarioController {
         $data->email = $dataRequest['email'];
         $data->senha = $dataRequest['senha'];
         $data->id = $_SESSION['id'];
-
-        $update = UsuarioModel::updateUsuario($data);
-        echo json_encode("Deu certo?");
+        try {
+            $update = UsuarioModel::updateUsuario($data);
+        }catch(\Throwable $e){
+            http_response_code(401);
+            echo json_encode($e->getMessage());
+        }
     }
 
     public static function getChecklist($idusuario) {
+        try{
+            $get = UsuarioModel::getChecklistUser($idusuario);
+            return $get;
+        }catch(\Throwable $e) {
+            http_response_code(401);
+            echo json_encode($e->getMessage());
+        }
+    }
+    public static function getUser($data) {
+        try {
+            $get = UsuarioModel::getAll($data);
+            return $get;
+        }catch(\Throwable $e) {
+            http_response_code(401);
+            echo json_encode($e->getMessage());
+        }
+    }
 
-        $get = UsuarioModel::getChecklistUser($idusuario);
-        return $get;
+    public function tokenChecklist() {
+        $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
+        $dotenv->load();
+
+        $dataRequest = json_decode(file_get_contents('php://input'), true);
+        $id = $dataRequest['id'];
+        
+        $payload = [
+            'exp' => time() + 100000,
+            'iat' => time(),
+            'id' => $id
+        ];
+
+        $encode = JWT::encode($payload,$_ENV['KEY'],'HS256');
+        echo json_encode($encode);
+        
+    } 
+
+    public function desencodeChecklist(){
+        $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
+        $dotenv->load();
+
+        $dataRequest = getallheaders();
+        $authorization = $dataRequest['Authorization'];
+        $token = str_replace('Bearer','',$authorization);
+        
+        try{
+            $decoded = JWT::decode($token, new Key($_ENV['KEY'], 'HS256'));
+            
+                $_SESSION['idChecklist'] = $decoded->id;
+           
+        } catch(\Throwable $e) {
+            http_response_code(401);
+            echo json_encode($e->getMessage());
+        }
+
     }
 }

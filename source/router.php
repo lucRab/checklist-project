@@ -29,8 +29,8 @@ $routes = [
         "/checklist/cadastro" => fn() => load('LoadPages', 'cadastroPage'),
         "/checklist/home" => fn() => load('LoadPages', 'homePage'),
         "/checklist/perfil" => fn() => load('LoadPages', 'perfilPage'),
-        "/checklist/criar" => fn() => load('LoadPages', 'criarPage')
-        
+        "/checklist/criar" => fn() => load('LoadPages', 'criarPage'),
+        "/checklist/visualizar" => fn() => load('LoadPages', 'visualizarPage')  
     ],
     'POST' => [
         "/checklist/" => fn() => load('LoadPages', 'loginPage'),
@@ -41,6 +41,10 @@ $routes = [
         "/checklist/perfil" => fn() => load('LoadPages', 'perfilPage'),
         "/checklist/auth" => fn() => load('UsuarioController', 'authToken'),
         "/checklist/criar" => fn() => load('LoadPages', 'criarPage'),
-        "/checklist/checklistcreate" => fn() => load('ChecklistController', 'createChecklist')
+        "/checklist/delete" => fn() => load('ChecklistController', 'deleteChecklist'),
+        "/checklist/checklistcreate" => fn() => load('ChecklistController', 'createChecklist'),
+        "/checklist/visualizar" => fn() => load('LoadPages', 'visualizarPage'),
+        "/checklist/cl/token" => fn() => load('UsuarioController', 'tokenChecklist'),
+        "/checklist/cl/dctoken" => fn() => load('UsuarioController', 'desencodeChecklist')
     ]
 ];

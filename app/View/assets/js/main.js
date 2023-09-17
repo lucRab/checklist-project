@@ -4,15 +4,16 @@ var cadastro = 'http://localhost/checklist/cadastro';
 var home = 'http://localhost/checklist/home';
 var perfil = 'http://localhost/checklist/perfil';
 var criar = 'http://localhost/checklist/criar';
+var visualizar = 'http://localhost/checklist/visualizar';
 var url = window.location.href;
 
-if(localStorage.token === undefined){
-    if (url != login && url != cadastro) {
-        window.location.replace(login);
-    }
-  }else{
-    if(url != home && url != perfil && url != criar) {
-        window.location.replace(home);
-    }
+if(localStorage.token === undefined) {
+  if (url != login && url != cadastro) {
+    window.location.replace(login);
   }
+}else{
+  if(url != home && url != perfil && url != criar && url != visualizar) {
+    window.location.replace(home);
+  }
+}
 
