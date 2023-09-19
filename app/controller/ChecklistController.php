@@ -5,7 +5,7 @@ use App\model\ChecklistModel;
 use Dotenv\Dotenv;
 class ChecklistController {
 
-    public function createChecklist($chechlist) {
+    public function createChecklist() {
         $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
         $dotenv->load();
         
@@ -84,22 +84,29 @@ class ChecklistController {
 
     public static function getIdItem($idchecklist) {
         $get = ChecklistModel::getIdItem($idchecklist);
-
-        $array = $get->fetchALL(\PDO::FETCH_OBJ);
-        return $array;
+        if(gettype($get) != 'string') {
+            $array = $get->fetchALL(\PDO::FETCH_OBJ);
+            return $array;
+        }else {
+            return $get;
+        }
     }
 
     public static function deleteItem($iditem) {
-
         $delete = ChecklistModel::deleteItem($iditem);
         return $delete;
+        
     }
 
     public static function getItem($idchecklist) {
         
         $get = ChecklistModel::getItem($idchecklist);
-        $array = $get->fetchALL(\PDO::FETCH_OBJ);
-        return $array;
+        if(gettype($get) != 'string') {
+            $array = $get->fetchALL(\PDO::FETCH_OBJ);
+            return $array;
+        }else {
+            return $get;
+        }
     }
     public static function getChecklist($idchecklist) {
         

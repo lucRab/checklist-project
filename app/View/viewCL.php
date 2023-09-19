@@ -49,11 +49,15 @@
                       <p class="card-text">
                         <input class="form-check-input" type="checkbox"></input>
                         <label class="form-check-label p-3" for="flexCheckDefault"><?php echo $array[$i]->nome_item ?></label>
-                        <div><?php echo $array[$i]->descricao_item ?></div>
+                        <div> Descrição: <?php echo $array[$i]->descricao_item ?></div>
                       </p>
                       <?php $i++;} ?>
                     <?php }?>
-                        <?php echo $name[0]->descricao ?>
+                      <div class=" p-3">
+                        <h5>Descrição do Checklist: <?php echo $name[0]->descricao ?></h5>
+                      </div>
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Opções</button>
+                      
                     </div>
                 </div>
               <?php }else { ?>
@@ -62,6 +66,18 @@
             </div>
             <div class="p-3 mb-3 bg-transparent"></div>
         </div>
+    </div>
+    
+    <div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+        <button id="ba" class="btn btn-primary">Editar</button>
+        <button id="be" class="btn btn-danger">Excluir</button>
+      </div>
     </div>
 <script type="module" src="app/View/assets/js/navbar.js"></script>
 <script type="module" src="app/View/assets/js/auth.js"></script>
