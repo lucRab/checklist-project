@@ -74,9 +74,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
-        <button id="ba" class="btn btn-primary">Editar</button>
-        <button id="be" class="btn btn-danger">Excluir</button>
+        <div id="opcao">
+          <p>Try scrolling the rest of the page to see this option in action.</p>
+          <div id="<?php echo $idchecklist ?>">
+            <button id="edit" class="btn btn-primary">Editar</button>
+            <button id="be" class="btn btn-danger">Excluir</button>
+          </div>
+        </div>
       </div>
     </div>
 <script type="module" src="app/View/assets/js/navbar.js"></script>

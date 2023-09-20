@@ -28,5 +28,3 @@ check.addEventListener('click', async function(event) {
         window.location.replace('http://localhost/checklist/visualizar');
     }
 });
-var b;
-var a;

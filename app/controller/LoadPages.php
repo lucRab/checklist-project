@@ -36,4 +36,9 @@ class LoadPages{
         session_destroy();
         return Controller::view('viewCL');
     }
+
+    public function editarPage($data) {
+        session_destroy();
+        return Controller::view('editar');
+    }
 }
