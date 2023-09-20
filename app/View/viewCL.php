@@ -1,5 +1,6 @@
 <?php $this->layout('main');
   use App\controller\ChecklistController;
+  if(empty($_SESSION['idChecklist'])) header('Refresh:0');
   $idchecklist = intval($_SESSION['idChecklist']);
   $name = ChecklistController::getChecklist($idchecklist);
   $array = ChecklistController::getItem($idchecklist);

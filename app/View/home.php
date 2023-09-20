@@ -2,6 +2,7 @@
 <?php 
   $this->layout('main');
   use App\controller\UsuarioController;
+  if(empty($_SESSION['id'])) header('Refresh:0');
   $checklist = UsuarioController::getChecklist($_SESSION['id']);
   $array = $checklist->fetchALL(PDO::FETCH_OBJ);
   $quantt = sizeof($array) - 1;
