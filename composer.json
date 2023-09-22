@@ -21,7 +21,9 @@
         },
         "files": [
             "source/Config.php",
-            "app/controller/LoadPages.php"
+            "app/controller/LoadPages.php",
+            "app/controller/ChecklistController.php"
+
 
         ]
     },
