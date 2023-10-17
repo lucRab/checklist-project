@@ -4,7 +4,7 @@
   $idchecklist = intval($_SESSION['idChecklist']);
   $name = ChecklistController::getChecklist($idchecklist);
   $array = ChecklistController::getItem($idchecklist);
-  $quantt = sizeof($array) - 1;
+  $quantt = sizeof($array);
   $i = 0;
  ?>
 <style>

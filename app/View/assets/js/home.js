@@ -5,7 +5,7 @@ check.addEventListener('click', async function(event) {
     const id = event.target.parentNode.parentNode.parentNode.id;
     const div = document.getElementById(id);
     if(event.target.id == "be") {
-        div.innerHTML = "";
+        let json;
         const response = await fetch('http://localhost/checklist/delete', {
             method: 'POST',
             headers: {
@@ -13,6 +13,9 @@ check.addEventListener('click', async function(event) {
             },
             body: JSON.stringify({id:id})
         });
+        json = await response.json();
+        console.log(json);
+        div.innerHTML = "";
     }
     if(event.target.id == "ba") {
         let json;

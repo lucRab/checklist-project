@@ -5,12 +5,12 @@
   if(empty($_SESSION['id'])) header('Refresh:0');
   $checklist = UsuarioController::getChecklist($_SESSION['id']);
   $array = $checklist->fetchALL(PDO::FETCH_OBJ);
-  $quantt = sizeof($array) - 1;
+  $quantt = sizeof($array);
   $i = 0;
 ?>
 <style>
   body {
-    background-image: url('app/View/assets/img/bghome.gif');
+    background-image: url('app/View/assets/img/bghome.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -22,7 +22,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
-      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 bg-dark">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>

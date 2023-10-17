@@ -1,8 +1,10 @@
 <?php
 namespace App\controller;
 
+//require "app/Model/ChecklistModel.php";
 use App\model\ChecklistModel;
-use Dotenv\Dotenv;
+use Dotenv\Dotenv; 
+use PDO;
 class ChecklistController {
 
     public function createChecklist() {
@@ -12,25 +14,23 @@ class ChecklistController {
         $dataRequest = json_decode(file_get_contents('php://input'), true);
         
         if($idUsuario = $dataRequest['id']) {
-            var_dump($dataRequest);
             $idUsuario = intval($idUsuario);
             $chechlist = $dataRequest['item'];
-            $descricao = $chechlist["descricao"];
-            $titulo = $chechlist["titulo"];
+            $key = array_keys($chechlist);
 
             $data = new \stdClass;
             $data->id = $idUsuario;
-            $data->nome = $titulo;
-            $data->descricao = $descricao;
+            $data->nome = $chechlist["titulo"];
+            $data->descricao = $chechlist["descricao"];
+
             try {
                 $create = ChecklistModel::createChecklist($data);
                 if(gettype($create) == 'integer') {
-                    $quantidade_item = sizeof($chechlist);
+                    $quantidade_item = sizeof($key);
                     if($quantidade_item > 2) {
-
-                        $quantidade_item = $quantidade_item - 3;
+                        $quantidade_item -= 3;
                         while($quantidade_item != -1) {
-                            $itens = $chechlist[$quantidade_item];
+                            $itens = $chechlist[$key[$quantidade_item]];
                         
                             $datai = new \stdClass;
                             $datai->id = intval($create);
@@ -39,7 +39,7 @@ class ChecklistController {
                             
                             $setitem = $this->setItem($datai);
                             if(gettype($setitem) != 'integer'){
-                                throw new \Exception($setitem);
+                                throw new \Exception("$setitem");
                                 die();
                             }
                             $quantidade_item --;  
@@ -65,17 +65,19 @@ class ChecklistController {
         $dataRequest = json_decode(file_get_contents('php://input'), true);
         $id = $dataRequest['id'];
        
-        if(self::getIdItem($id) == true) {
-            $item = self::getIdItem($id);
-            $qttd = sizeof($item) - 1;
+        if(self::getIdItem($id)) {
+            $getitem = ChecklistModel::getItem($id);
+            $item = $getitem->fetchALL(PDO::FETCH_OBJ);
+            $qttd = sizeof($item);
             $i = 0;
             while($i < $qttd) {
-                self::deleteItem($item[$i]->iditem);
+                $dele = ChecklistModel::deleteItem($item[$i]->iditem);
                 $i ++;
             }
         }
         $delete = ChecklistModel::deleteChecklist($id);
-        return $delete;
+       
+        echo json_encode($delete);
     }
     private function setItem($data) {
         $setitem = ChecklistModel::setItem($data); 

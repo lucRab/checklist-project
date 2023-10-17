@@ -94,8 +94,6 @@ formI.addEventListener('submit', function(e) {
     })
     
     i ++;
-    
-    console.log(titems);
 });  
 
 excluir.addEventListener('click', () => {
@@ -118,4 +116,3 @@ salvar.addEventListener('click', async function(e) {
     json = await response.json();
     console.log(json);
 });
-var a;
